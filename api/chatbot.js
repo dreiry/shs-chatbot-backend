@@ -30,6 +30,7 @@ module.exports = async function handler(req, res) {
         res.status(200).json({ reply: text });
     } catch (error) {
         console.error("API Error:", error);
-        res.status(500).json({ error: 'Failed to fetch response from AI' });
+        // This sends the exact Google rejection reason straight to your frontend
+        res.status(500).json({ error: `Google API Error: ${error.message}` });
     }
 };
