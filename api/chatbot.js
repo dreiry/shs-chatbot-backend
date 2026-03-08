@@ -19,7 +19,7 @@ module.exports = async function handler(req, res) {
         const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
         
         const model = genAI.getGenerativeModel({
-            model: "gemini-1.5-flash",
+            model: "gemini-2.5-flash",
             systemInstruction: "You are the official AI assistant for Romblon State University - Laboratory Science High School. Answer questions about the school, curriculum, and admissions helpfully and accurately in English and Tagalog.",
         });
 
