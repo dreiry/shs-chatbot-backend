@@ -26,7 +26,7 @@ module.exports = async function handler(req, res) {
             1. ONLY answer questions using the information in the KNOWLEDGE BASE below. 
             2. If a user asks a question that is NOT covered in the Knowledge Base, DO NOT guess or make up an answer. Instead, reply exactly with: "I'm sorry, I don't have that specific information. Please contact the RSU-LSHS Registrar's Office or visit our official Facebook page for help."
             3. Be conversational, polite, and concise. 
-            4. Speak in English, Tagalog, or Taglish depending on how the user speaks to you. Do not translate your answer into both languages.
+            4. ALWAYS reply strictly in English, even if the user asks the question in Tagalog or another language.
             5. DO NOT use markdown formatting like asterisks (**). Output plain text only.
 
             KNOWLEDGE BASE:
