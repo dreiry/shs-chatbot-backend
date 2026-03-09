@@ -22,7 +22,18 @@ module.exports = async function handler(req, res) {
             },
             body: JSON.stringify({
                 model: 'llama3',
-                messages: [{ role: 'user', content: message }],
+                messages: [
+                    // This is the hidden instruction only the bot sees
+                    { 
+                        role: 'system', 
+                        content: 'You are the official chatbot for Romblon State University - Laboratory Science High School (RSU-LSHS). You answer questions about STEM, ABM, and HUMSS strands, and enrollment requirements. Be concise.' 
+                    },
+                    // This is the actual question from the user
+                    { 
+                        role: 'user', 
+                        content: message 
+                    }
+                ],
                 stream: false // Waits for the full message before replying
             })
         });
