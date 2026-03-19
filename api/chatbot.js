@@ -14,9 +14,8 @@ module.exports = async function handler(req, res) {
         const { message } = req.body;
 
         // 2. Call YOUR laptop via ngrok
-        // 🚨 CRITICAL: Replace the link below with your currently active ngrok link!
-        // Make sure you keep the /api/chat at the very end.
-        const ngrokUrl = 'https://postdysenteric-nasir-nonyielding.ngrok-free.dev -> http://localhost:11434';
+        // Notice the /api/chat is perfectly attached at the end!
+        const ngrokUrl = 'https://postdysenteric-nasir-nonyielding.ngrok-free.dev/api/chat';
 
         const response = await fetch(ngrokUrl, {
             method: 'POST',
@@ -25,7 +24,7 @@ module.exports = async function handler(req, res) {
                 'ngrok-skip-browser-warning': 'true' // Bypasses the 403 Forbidden error
             },
             body: JSON.stringify({
-                model: 'phi3', // Upgraded to the faster, lightweight model
+                model: 'phi3', // Using the fast Phi-3 model
                 messages: [
                     // The "Brain": Hidden instructions so it remembers your school
                     {
