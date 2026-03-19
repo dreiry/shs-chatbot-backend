@@ -16,7 +16,7 @@ module.exports = async function handler(req, res) {
         // 2. Call YOUR laptop via ngrok
         // 🚨 CRITICAL: Replace the link below with your currently active ngrok link!
         // Make sure you keep the /api/chat at the very end.
-        const ngrokUrl = 'https://YOUR-CURRENT-NGROK-LINK.ngrok-free.app/api/chat';
+        const ngrokUrl = 'https://postdysenteric-nasir-nonyielding.ngrok-free.dev';
 
         const response = await fetch(ngrokUrl, {
             method: 'POST',
