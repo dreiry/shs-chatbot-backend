@@ -35,15 +35,18 @@ module.exports = async function handler(req, res) {
             "facebook page": "You can follow our official announcements on the 'RSU-LSHS Student Government' Facebook page, or check out 'The Harrow' for our campus journal!"
         };
 
-        if (fastAnswers[userText]) {
-            return res.status(200).json({ reply: fastAnswers[userText] });
-        }
+       // 🌟 THE UPGRADE: Search INSIDE the user's sentence for keywords
+     const matchedKey = Object.keys(fastAnswers).find(key => userText.includes(key));
+
+     if (matchedKey) {
+         return res.status(200).json({ reply: fastAnswers[matchedKey] });
+     }
 
         // ==========================================
         // 3. THE HEAVY AI (Fallback to your laptop)
         // ==========================================
         // 🚨 CRITICAL: Update this ngrok link every time you restart ngrok!
-        const ngrokUrl = 'https://postdysenteric-nasir-nonyielding.ngrok-free.dev -> http://localhost:11434/api/chat';
+       const ngrokUrl = 'https://postdysenteric-nasir-nonyielding.ngrok-free.dev/api/chat';
 
         const response = await fetch(ngrokUrl, {
             method: 'POST',
